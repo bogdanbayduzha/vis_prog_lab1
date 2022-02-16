@@ -1,0 +1,27 @@
+using System;
+using System.Linq;
+
+namespace ConsoleApp1
+{
+    class Programm
+    {
+        static void Main(string[] args)
+        {
+            int[] customers = new int[4] { 10, 2, 3, 3 };
+            Console.WriteLine(HW1.QueueTime(customers, 2));
+        }
+    }
+
+    public class HW1
+    {
+        public static long QueueTime(int[] customers, int n)
+        {
+            var checkout = new int[n];
+            foreach (var i in customers)
+            {      
+                checkout[Array.IndexOf(checkout, checkout.Min())] += i;
+            }
+            return checkout.Max();
+        }
+    }
+}
